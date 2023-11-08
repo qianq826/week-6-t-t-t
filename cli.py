@@ -7,7 +7,7 @@ logging.basicConfig(
 )
          
 
-if __name__ == '__main__': #programe excute directly
+if __name__ == '__main__': #program excute directly
     current_player = "X"
     board = get_empty_board()
     winner = None 
@@ -30,6 +30,6 @@ if __name__ == '__main__': #programe excute directly
         board[row][col] = current_player
         winner = check_winner(board)
         current_player = switch_player(current_player)
-
-print(f"winner is {current_player}")
+print_board(board)
+print(f"winner is {winner}")
 logging.info(f'Player {current_player} made a move')

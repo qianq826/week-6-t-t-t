@@ -5,6 +5,7 @@ def check_winner(board):
     #    ['O', 'O', 'X'],
     for row in board:
         if len(set(row)) == 1:
+            print(f"winner_in_row")
             return row[0]
 
     # check columns
@@ -20,6 +21,7 @@ def check_winner(board):
         # column => ['X', 'O', 'O']
         # column => ['X', 'X', 'O]
         if len(set(column)) == 1:
+            print(f"winner_in_col")
             return board[0][i]
 
     # check diagonals
@@ -31,6 +33,7 @@ def check_winner(board):
     # idx -> [[0,0], [1,1], [2, 2]]
     top_left_to_bottom_right = [board[i][i] for i in range(len(board))]
     if len(set(top_left_to_bottom_right)) == 1:
+        print(f"winner_in_dia")
         return board[0][0]
 
     # check diagonals
@@ -42,6 +45,7 @@ def check_winner(board):
     # idx -> [[0,2], [1,1], [2, 0]]
     top_right_to_bottom_left = [board[i][len(board)-i-1] for i in range(len(board))]
     if len(set(top_right_to_bottom_left)) == 1:
+        print(f"winner_in_dia2")
         return board[0][len(board)-1]
 
 
@@ -51,6 +55,7 @@ def check_winner(board):
              flat_board.extend(row)
 
     if not None in flat_board:
+       print(f"draw")
        return "Draw"
 
     return None
